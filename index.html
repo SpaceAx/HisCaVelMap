@@ -370,7 +370,7 @@
       </button>
       <br />
       <div class="footer-text">
-        © 2024 Thomas Alfareno Ananta Nugraha Kelas XI-B
+        © 2024 Thomas Alfareno Ananta Nugraha Kelas XII-B / Extra Multimedia 
       </div>
     </div>
 
@@ -415,10 +415,11 @@
 
     <div id="congrats-container" role="alert" aria-live="assertive" aria-atomic="true" aria-relevant="additions">
       <i class="fas fa-trophy fa-2x" style="margin-bottom: 12px; color: #facc15;"></i><br />
-      Selamat! Kamu mendapatkan <span style="color:#fbbf24;">Chocolatos</span> 🎉
+      Selamat kamu telah menyelesaikan misi perjalanan <span style="color:#fbbf24;">sejarah!</span> 🎉
     </div>
 
     <canvas id="sprinkler-canvas"></canvas>
+    <audio id="win-sound" src="menang.ogg" preload="auto"></audio>
 
     <script>
       const quizContainer = document.getElementById("quiz-container");
@@ -815,12 +816,15 @@
 
       // Congratulation message and sprinkler particle effect
       function showCongrats() {
-        congratsContainer.classList.add("show");
-        startSprinkler();
-        setTimeout(() => {
-          congratsContainer.classList.remove("show");
-          stopSprinkler();
-        }, 7000);
+      const winSound = document.getElementById("win-sound");
+      winSound.volume = 1.0; // 100% volume
+      winSound.play(); // Putar suara
+      congratsContainer.classList.add("show");
+      startSprinkler();
+      setTimeout(() => {
+      congratsContainer.classList.remove("show");
+      stopSprinkler();
+      }, 7000);
       }
 
       // Sprinkler particle effect implementation
